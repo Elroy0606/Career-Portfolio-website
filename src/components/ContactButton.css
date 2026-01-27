@@ -1,0 +1,78 @@
+/* 1. The Spiral Animation */
+@keyframes spiralAndFall {
+    0% {
+        transform: rotate(0deg) scale(1);
+        top: 0;
+        left: 0;
+    }
+    30% {
+        transform: rotate(180deg) scale(0.8);
+    }
+    100% {
+        /* Flies to bottom center of viewport */
+        transform: rotate(1080deg) scale(0);
+        top: 80vh;
+        left: 50%;
+        opacity: 0;
+    }
+}
+
+.contact-btn.spiraling {
+    position: fixed; /* Takes it out of the flow to fly across screen */
+    z-index: 9999;
+    animation: spiralAndFall 1.2s forwards ease-in;
+    pointer-events: none;
+}
+
+/* 2. The Pop-up Styling */
+.under-construction-popup {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 300px;
+}
+
+.pixel-box {
+    background: #1a1a1a;
+    color: #f1c40f;
+    border: 4px solid #fff;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 8px 8px 0px #000;
+}
+
+.hint {
+    font-size: 0.7rem;
+    color: #e74c3c;
+    margin-top: 10px;
+    animation: flash 0.5s infinite;
+}
+
+/* 3. The Bin at Bottom Center */
+.bin-container {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bin-container.active {
+    bottom: 20px; /* Pops up from the bottom */
+}
+
+/* Optional: Make the bin "shake" when button hits it */
+.bin-container.active {
+    animation: binShake 0.2s 1.1s; /* Shakes right as button disappears */
+}
+
+@keyframes binShake {
+    0%, 100% { transform: translateX(-50%) rotate(0); }
+    25% { transform: translateX(-52%) rotate(-5deg); }
+    75% { transform: translateX(-48%) rotate(5deg); }
+}
+
+@keyframes flash { 50% { opacity: 0; } }

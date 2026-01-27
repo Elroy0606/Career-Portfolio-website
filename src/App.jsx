@@ -5,13 +5,19 @@ import LogoSection from "./sections/LogoSection.jsx";
 import FeatureCards from "./sections/FeatureCards.jsx";
 import ExperienceSection from "./sections/ExperienceSection.jsx";
 import TechStack from "./sections/TechStack.jsx";
+import ConstructionTape from './components/ConstructionTape.jsx';
+
 
 
 const App = () => {
     return (
-        <>
+        <> 
+
+            <ConstructionTape />
+           
             <NavBar/>
             <Hero/>
+
             <ShowcaseSection/>
             {/*<LogoSection/>   dont forget to add your own images here*/}
             <FeatureCards/>

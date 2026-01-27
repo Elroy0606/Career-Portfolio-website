@@ -1,0 +1,37 @@
+.caution-container {
+    position: fixed;
+    top: 100px; /* Distance from top */
+    left: -10%;
+    width: 120%;
+    z-index: 100;
+    pointer-events: none; /* User can click through it */
+    transform: rotate(-3deg); /* The "taped on" look */
+}
+
+.caution-tape {
+    background: #fcd34d; /* Construction Yellow */
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+}
+
+.tape-content {
+    display: inline-block;
+    padding: 10px 0;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    color: #000;
+    font-size: 1.2rem;
+    animation: scroll 20s linear infinite;
+}
+
+.tape-content span {
+    padding: 0 2px;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}

@@ -1,33 +1,36 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useRef } from "react";
 import { navLinks } from "../constants";
+import TrashAction from "./TrashAction.jsx";
 
 const NavBar = () => {
-    // track if the user has scrolled down the page
     const [scrolled, setScrolled] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [isDeleted, SetIsDeletd]= useState(false);
+
+    const contactBtnRef = useRef(null);
 
     useEffect(() => {
-        // create an event listener for when the user scrolls
         const handleScroll = () => {
-            // check if the user has scrolled down at least 10px
-            // if so, set the state to true
-            const isScrolled = window.scrollY > 10;
-            setScrolled(isScrolled);
+            setScrolled(window.scrollY > 10);
         };
-
-        // add the event listener to the window
         window.addEventListener("scroll", handleScroll);
-
-        // cleanup the event listener when the component is unmounted
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const startDeleteSequence = (e) => {
+        e.preventDefault();
+        setIsDeleting(true);
+    };
+
+    const handleAnimationComplete = () => {
+        setIsDeleting(false); // Close the TrashAction overlay
+        setIsDeleted(true);   // Tell the NavBar the button is gone forever
+    };
 
     return (
         <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
             <div className="inner">
-                <a href="#hero" className="logo">
-                    Elroy Fernandes
-                </a>
+                <a href="#hero" className="logo">Elroy Fernandes</a>
 
                 <nav className="desktop">
                     <ul>
@@ -42,12 +45,29 @@ const NavBar = () => {
                     </ul>
                 </nav>
 
-                <a href="#contact" className="contact-btn group">
-                    <div className="inner">
-                        <span>Contact me</span>
-                    </div>
-                </a>
+                {/* 1. Only render the button if isDeleted is FALSE */}
+                {!isDeleted && (
+                    <a
+                        href="#contact"
+                        ref={contactBtnRef}
+                        onClick={startDeleteSequence}
+                        /* 2. Hide it during animation so it doesn't look like there are two buttons */
+                        className={`contact-btn group ${isDeleting ? 'opacity-0 pointer-events-none' : ''}`}
+                        style={{ transition: 'opacity 0.2s' }}
+                    >
+                        <div className="inner">
+                            <span>Contact me</span>
+                        </div>
+                    </a>
+                )}
             </div>
+
+            {isDeleting && (
+                <TrashAction
+                    buttonRef={contactBtnRef}
+                    onComplete={handleAnimationComplete} // 3. Call the completion handler
+                />
+            )}
         </header>
     );
 }
