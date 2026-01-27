@@ -3,10 +3,10 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 const TrashAction = ({ buttonRef, onComplete }) => {
-    const overlayRef = useRef();
-    const flyingBtnRef = useRef();
-    const binRef = useRef();
-    const lidRef = useRef();
+    const overlayRef = useRef();            //The Invisible background covering the whole screen
+    const flyingBtnRef = useRef();          //The second hidden button that actually flies into the trash
+    const binRef = useRef();                // The trash can body
+    const lidRef = useRef();                // The Trash can lid
 
     useGSAP(() => {
         if (!buttonRef.current) return;
@@ -18,8 +18,10 @@ const TrashAction = ({ buttonRef, onComplete }) => {
             onComplete: () => {
                 // Wait a second then tell parent to unmount this overlay
                 gsap.to(overlayRef.current, {
+
+
                     opacity: 0,
-                    delay: 0.5,
+                    delay:0.5,
                     onComplete: onComplete
                 });
             }

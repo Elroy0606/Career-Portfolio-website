@@ -1,6 +1,6 @@
 const navLinks = [
   {
-    name: "Work",
+    name: "Projects",
     link: "#work",
   },
   {
@@ -12,9 +12,15 @@ const navLinks = [
     link: "#skills",
   },
   {
-    name: "Testimonials",
-    link: "#testimonials",
+    name: "Knowledge",
+    link: "#knowledge",
   },
+
+  {
+    name: "About Me",
+    link: "#aboutme",
+  }
+
 ];
 
 const words = [
