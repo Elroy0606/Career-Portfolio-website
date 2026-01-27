@@ -13,9 +13,10 @@ const App = () => {
     return (
         <> 
 
-            <ConstructionTape />
+
            
             <NavBar/>
+            <ConstructionTape />
             <Hero/>
 
             <ShowcaseSection/>
