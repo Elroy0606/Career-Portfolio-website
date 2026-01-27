@@ -5,7 +5,7 @@ import TrashAction from "./TrashAction.jsx";
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
-    const [isDeleted, SetIsDeletd]= useState(false);
+    const [isDeleted, setIsDeleted] = useState(false);
 
     const contactBtnRef = useRef(null);
 
@@ -23,8 +23,8 @@ const NavBar = () => {
     };
 
     const handleAnimationComplete = () => {
-        setIsDeleting(false); // Close the TrashAction overlay
-        setIsDeleted(true);   // Tell the NavBar the button is gone forever
+        setIsDeleting(false);
+        setIsDeleted(true);
     };
 
     return (
@@ -45,13 +45,17 @@ const NavBar = () => {
                     </ul>
                 </nav>
 
-                {/* 1. Only render the button if isDeleted is FALSE */}
-                {!isDeleted && (
+                {/* --- FIX PLACED HERE --- */}
+                {/* We keep the div rendered ALWAYS so the space is reserved */}
+                <div style={{
+                    visibility: isDeleted ? 'hidden' : 'visible',
+                    pointerEvents: isDeleted ? 'none' : 'auto',
+                    display: 'flex' // Ensures it behaves like the button did
+                }}>
                     <a
                         href="#contact"
                         ref={contactBtnRef}
                         onClick={startDeleteSequence}
-                        /* 2. Hide it during animation so it doesn't look like there are two buttons */
                         className={`contact-btn group ${isDeleting ? 'opacity-0 pointer-events-none' : ''}`}
                         style={{ transition: 'opacity 0.2s' }}
                     >
@@ -59,13 +63,14 @@ const NavBar = () => {
                             <span>Contact me</span>
                         </div>
                     </a>
-                )}
+                </div>
+                {/* --- END OF FIX --- */}
             </div>
 
             {isDeleting && (
                 <TrashAction
                     buttonRef={contactBtnRef}
-                    onComplete={handleAnimationComplete} // 3. Call the completion handler
+                    onComplete={handleAnimationComplete}
                 />
             )}
         </header>
