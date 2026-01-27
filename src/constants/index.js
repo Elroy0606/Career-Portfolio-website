@@ -12,10 +12,13 @@ const navLinks = [
     link: "#skills",
   },
   {
+    name: "Polyglot",
+    link: "#polyglot",
+  },
+  {
     name: "Knowledge",
     link: "#knowledge",
   },
-
   {
     name: "About Me",
     link: "#aboutme",
