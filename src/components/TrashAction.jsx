@@ -168,11 +168,17 @@ const styles = {
         background: '#e53e3e',
         color: 'white',
         borderRadius: '8px',
+        fontWeight: 'bold',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '14px',
-        fontWeight: 'bold'
+        whiteSpace: 'nowrap',
+
+        // --- RESPONSIVE LOGIC ---
+        // If screen is less than 768px (standard mobile breakpoint)
+        padding: window.innerWidth < 768 ? '6px 12px' : '10px 20px',
+        fontSize: window.innerWidth < 768 ? '10px' : '14px',
+        // ------------------------
     },
     bin: {
         position: 'absolute',
