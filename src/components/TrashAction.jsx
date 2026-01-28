@@ -135,7 +135,10 @@ const styles = {
         top: 0, left: 0, width: '100vw', height: '100vh',
         backgroundColor: 'rgba(0,0,0,0.1)',
         zIndex: 2147483647,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        padding: window.innerWidth < 768 ? '6px 12px' : '10px 20px',
+        fontSize: window.innerWidth < 768 ? '10px' : '14px',
+
     },
     characterWrapper: {
         position: 'absolute',
@@ -143,7 +146,7 @@ const styles = {
         right: '10%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'flex-start',
     },
     characterImg: {
         width: '400px',
