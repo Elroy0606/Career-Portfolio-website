@@ -6,7 +6,6 @@ const NavBar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
-
     const contactBtnRef = useRef(null);
 
     useEffect(() => {
@@ -60,7 +59,7 @@ const NavBar = () => {
                         style={{ transition: 'opacity 0.2s' }}
                     >
                         <div className="inner">
-                            <span>Contact me</span>
+                            <span>DELETE WEBSITE</span>
                         </div>
                     </a>
                 </div>

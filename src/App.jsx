@@ -24,6 +24,7 @@ const App = () => {
             <FeatureCards/>
             <ExperienceSection/>
             <TechStack/>
+
         </>
     )
 }
