@@ -46,21 +46,28 @@ const TrashAction = ({ buttonRef, onComplete }) => {
             });
 
         // --- THE PAUSE FUNCTION ---
+// --- THE ENTER KEY OR TAP PAUSE FUNCTION ---
         tl.add(() => {
-            tl.pause(); // Stop the animation right here
+            tl.pause(); // Pause the sequence
 
-            const resumeOnEnter = (event) => {
-                // Check if the pressed key is Enter
-                if (event.key === "Enter") {
-                    // Prevent default behavior (like submitting forms)
-                    event.preventDefault();
+            const resumeAnimation = (event) => {
+                // Check if it's an Enter key OR a touch/tap event
+                const isEnterKey = event.type === 'keydown' && event.key === 'Enter';
+                const isTap = event.type === 'touchstart';
+
+                if (isEnterKey || isTap) {
+                    if (event.cancelable) event.preventDefault();
 
                     tl.play(); // Resume the animation
-                    window.removeEventListener('keydown', resumeOnEnter); // Clean up
+
+                    // Cleanup both listeners
+                    window.removeEventListener('keydown', resumeAnimation);
+                    window.removeEventListener('touchstart', resumeAnimation);
                 }
             };
 
-            window.addEventListener('keydown', resumeOnEnter );
+            window.addEventListener('keydown', resumeAnimation);
+            window.addEventListener('touchstart', resumeAnimation);
         });
         // ---------------------------
 
