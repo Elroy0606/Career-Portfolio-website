@@ -42,10 +42,12 @@ const App = () => {
 
             <Hero />
             <ShowcaseSection />
-            <FeatureCards />
             <ExperienceSection />
             <TechStack />
             <Polyglot/>
+            <section id="#aboutme">
+                <FeatureCards />
+            </section>
         </div>
     )
 }
