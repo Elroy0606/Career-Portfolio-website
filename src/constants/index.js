@@ -160,6 +160,44 @@ const techStackIcons = [
 
 ];
 
+
+
+ export const languagesIK = [
+  {
+    name: "English",
+
+  },
+
+  {
+    name: "French",
+    modelPath: "/models/python-transformed.glb",
+    scale: 0.8,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Konkani",
+    modelPath: "/models/node-transformed.glb",
+    scale: 5,
+    rotation: [0, -Math.PI / 2, 0],
+  },
+  {
+    name: "Marathi",
+    modelPath: "/models/three.js-transformed.glb",
+    scale: 0.05,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Hindi",
+    modelPath: "/models/java.glb",
+    scale: 1,
+    rotation: [0, -Math.PI / 4, 0],
+  },
+
+
+
+];
+
+
 const expCards = [
   {
     review: "Elroy is a reliable and professional team player who consistently delivers high-quality work without any problems. His fair judgment and natural leadership skills make him an excellent role model for others.",

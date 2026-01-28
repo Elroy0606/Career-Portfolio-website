@@ -100,11 +100,8 @@ const TrashAction = ({ buttonRef, onComplete }) => {
                     🚨 ALERT! 🚨
 
                     <div>
-
                         WHY ARE YOU TRYING TO DELETE MY WEBSITE?!?!</div>
-
                     <div>I didn't stay up for 72 hours coding this Website just for you to 'Yeet' it into the void. <strong>Sorry but you cant be trusted with this button.</strong>
-
                     </div>
 
                     <span style={{ fontSize: '12px', color: '#666', marginTop: '10px', display: 'block' }}>

@@ -8,6 +8,7 @@ import ExperienceSection from "./sections/ExperienceSection.jsx";
 import TechStack from "./sections/TechStack.jsx";
 import ConstructionTape from './components/ConstructionTape.jsx';
 import MatrixBackground from "./components/MatrixBackground.jsx";
+import Polyglot from "./sections/Polyglot.jsx";
 
 const App = () => {
     // 1. Initialize state from LocalStorage (defaults to 'true' if first visit)
@@ -44,6 +45,7 @@ const App = () => {
             <FeatureCards />
             <ExperienceSection />
             <TechStack />
+            <Polyglot/>
         </div>
     )
 }
