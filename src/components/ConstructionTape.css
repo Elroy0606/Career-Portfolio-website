@@ -31,6 +31,24 @@
 .tape-content span {
     padding: 0 2px;
 }
+/* 📱 Mobile Adjustments */
+@media (max-width: 768px) {
+    .caution-container {
+        top: 70px; /* Move it up higher on mobile */
+        left: -20%; /* Extra width to cover the tilt */
+        width: 140%;
+    }
+
+    .tape-content {
+        font-size: 0.8rem; /* Shrink the text so it's less bulky */
+        padding: 3px 0;
+    }
+
+    /* Push the Hero content down so it doesn't get covered */
+    .hero-content-class {
+        padding-top: 50px;
+    }
+}
 
 @keyframes scroll {
     from { transform: translateX(0); }

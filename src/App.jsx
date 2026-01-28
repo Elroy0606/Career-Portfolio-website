@@ -22,7 +22,7 @@ const App = () => {
         <div className="relative">
             {/* 3. Conditional Rendering of the Background */}
             {matrixEnabled && <MatrixBackground />}
-
+            <ConstructionTape />
             <NavBar />
 
             {/* 4. The Settings Toggle UI */}
@@ -38,7 +38,7 @@ const App = () => {
                 </button>
             </div>
 
-            <ConstructionTape />
+
             <Hero />
             <ShowcaseSection />
             <FeatureCards />
