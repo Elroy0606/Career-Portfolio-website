@@ -203,7 +203,7 @@ const expCards = [
     {
     review: "Elroy is a reliable and professional team player who consistently delivers high quality work without any problems. His fair judgment and natural leadership skills make him an excellent role model for others.",
     imgPath: "/images/uofm.png",
-    logoPath: "/images/uofm.png",
+    logoPath: "/images/C-I-L_logo.png",
     title: "Sales Admin Clerk Exp",
     company: "Canadian Industries LTD",
     date: "Aug 2025 - Present",
