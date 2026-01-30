@@ -199,13 +199,29 @@ const techStackIcons = [
 
 
 const expCards = [
+
+    {
+    review: "Elroy is a reliable and professional team player who consistently delivers high quality work without any problems. His fair judgment and natural leadership skills make him an excellent role model for others.",
+    imgPath: "/images/uofm.png",
+    logoPath: "/images/uofm.png",
+    title: "Sales Admin Clerk Exp",
+    company: "Canadian Industries LTD",
+    date: "Aug 2025 - Present",
+    responsibilities: [
+      "Performed weekly inventory management every Friday to ensure stock levels remained accurate.",
+      "Studied paint products and application techniques to provide expert advice on various projects.",
+      "Tinted paint based on customer preferences using automated and manual mixing systems.",
+      "Used color theory to manually match colors that the system was unable to scan.",
+      "Managed customer service inquiries by resolving complaints and processing product returns.",
+    ],
+  },
   {
     review: "Elroy is a reliable and professional team player who consistently delivers high-quality work without any problems. His fair judgment and natural leadership skills make him an excellent role model for others.",
     imgPath: "/images/uofm.png",
     logoPath: "/images/uofm.png",
     title: "Executive Secretary",
     company: "University Of Manitoba Volleyball Club",
-    date: "Sep 2022 - Present",
+    date: "Sep 2022 - Sep 2025",
     responsibilities: [
       "Led and organized sessions for 30+ club members, ensuring smooth operations and structured gameplay.",
       "Managed logistics, scheduling, and equipment setup for weekly matches and tournaments.",
