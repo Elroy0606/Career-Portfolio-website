@@ -48,7 +48,7 @@ const ShowcaseSection = () => {
                     <div
                         className="first-project-wrapper"
                         ref={project1Ref}
-                        onClick={() => window.open("https://github.com/Elroy0606", "_blank")}
+                        onClick={() => window.open("https://dailyblogs.elcybersec.com", "_blank")}
                         style={{
                             cursor: 'pointer',
                             borderRadius: '16px',
