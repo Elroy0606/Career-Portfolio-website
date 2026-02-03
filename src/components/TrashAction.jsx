@@ -76,15 +76,20 @@ const TrashAction = ({ buttonRef, onComplete }) => {
                 ease: "power2.in",
                 // THIS IS THE CRITICAL PART
                 onComplete: () => {
+
                     setIsButtonGone(true); // 1. Deletes the button from the code
+                    gsap.set(buttonRef.current, { display: "none" });
+
                 }
             })
+
             .to(lidRef.current, { rotation: 0, duration: 0.2, ease: "bounce.out" })
             // ... bin jiggles and disappears
             .to(binRef.current, { opacity: 0, scale: 0, duration: 0.3, delay: 0.5 })
             .add(() => {
                 // 2. NOW it is safe to change the text because the button is already deleted from the state
-                bubbleRef.current.innerHTML = "That button should have never been there... <br/> Anyways, please continue!";
+                bubbleRef.current.innerHTML = "That button should have never been there... <br/> Anyway, please continue!";
+
             })
             .to([characterRef.current, bubbleRef.current], { opacity: 1, scale: 1, duration: 0.5 })
             .to({}, { duration: 2.5 }) // Wait
@@ -116,9 +121,21 @@ const TrashAction = ({ buttonRef, onComplete }) => {
                 </div>
             )}
             <div ref={binRef} style={styles.bin}>
-                <svg width="80" height="100" viewBox="0 0 60 80">
-                    <path ref={lidRef} d="M5 15H55V10H40V5H20V10H5V15Z" fill="#333" />
-                    <path d="M10 20H50L45 75H15L10 20Z" fill="#666" />
+                <svg width="80" height="100" viewBox="0 0 60 80" style={{ overflow: 'visible' }}>
+                    {/* 1. Added overflow: visible so the lid can technically exit the box if needed */}
+
+                    {/* 2. Moved Lid down to y=25 to give 25 units of space above it */}
+                    <path
+                        ref={lidRef}
+                        d="M5 30H55V25H40V20H20V25H5V30Z"
+                        fill="#333"
+                    />
+
+                    {/* 3. Moved Body down to match the new lid position */}
+                    <path
+                        d="M10 32H50L45 75H15L10 32Z"
+                        fill="#666"
+                    />
                 </svg>
             </div>
         </div>

@@ -28,21 +28,22 @@ const NavBar = () => {
 
     return (
         <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
-            <div className="inner">
-                <a href="#hero" className="logo flex items-center gap-2">
-                    <img
-                        src="/images/squirel2.png"
-                        alt="Logo"
-                        className="w-12 h-12 object-contain"
-                    />
-                    <span className="font-bold">Elroy Fernandes</span>
-                </a>
+            <div className="inner flex items-center justify-between w-full px-6">
 
-                <nav className="desktop">
-                    <ul>
+                {/* 1. Left Slot: Logo */}
+                <div className="flex-1 flex justify-start">
+                    <a href="#hero" className="logo flex items-center gap-2">
+                        <img src="/images/squirel2.png" alt="Logo" className="w-12 h-12 object-contain" />
+                        <span className="font-bold">Elroy Fernandes</span>
+                    </a>
+                </div>
+
+                {/* 2. Middle Slot: Navigation (Fixed Center) */}
+                <nav className="desktop flex-none">
+                    <ul className="flex gap-8">
                         {navLinks.map(({ link, name }) => (
                             <li key={name} className="group">
-                                <a href={link}>
+                                <a href={link} className="relative">
                                     <span>{name}</span>
                                     <span className="underline" />
                                 </a>
@@ -51,26 +52,28 @@ const NavBar = () => {
                     </ul>
                 </nav>
 
-                {/* --- FIX PLACED HERE --- */}
-                {/* We keep the div rendered ALWAYS so the space is reserved */}
-                <div style={{
-                    visibility: isDeleted ? 'hidden' : 'visible',
-                    pointerEvents: isDeleted ? 'none' : 'auto',
-                    display: 'flex' // Ensures it behaves like the button did
-                }}>
-                    <a
-                        href="#contact"
-                        ref={contactBtnRef}
-                        onClick={startDeleteSequence}
-                        className={`contact-btn group ${isDeleting ? 'opacity-0 pointer-events-none' : ''}`}
-                        style={{ transition: 'opacity 0.2s' }}
-                    >
-                        <div className="inner">
-                            <span>DELETE WEBSITE</span>
-                        </div>
-                    </a>
+                {/* 3. Right Slot: Button (Fixed Width Placeholder) */}
+                <div className="flex-1 flex justify-end">
+                    <div style={{
+                        minWidth: '160px', // Matches your button width to prevent layout shift
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        visibility: isDeleted ? 'hidden' : 'visible',
+                        pointerEvents: isDeleted ? 'none' : 'auto',
+                    }}>
+                        <a
+                            href="#contact"
+                            ref={contactBtnRef}
+                            onClick={startDeleteSequence}
+                            className={`contact-btn group ${isDeleting ? 'opacity-0 pointer-events-none' : ''}`}
+                            style={{ transition: 'opacity 0.2s' }}
+                        >
+                            <div className="inner">
+                                <span>DELETE WEBSITE</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                {/* --- END OF FIX --- */}
             </div>
 
             {isDeleting && (
